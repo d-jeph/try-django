@@ -1,0 +1,15 @@
+ {% extends "base.html" %}
+
+ {% block content%}
+
+ {% for post in post_list %}
+ {{ post.id }} <br>
+
+ <!-- {% url 'posts:detail' id=post.id %} -->
+ <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>  <br>
+ {{ post.content }} <br>
+ {{ post.timestamp }} <br>
+ {{ post.updated }} <br><br>
+ {% endfor %}
+
+ {% endblock %}

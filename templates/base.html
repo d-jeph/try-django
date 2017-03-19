@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> {% block page_title %} Blog Home {%endblock%} </title>
+</head>
+<body>
+ <h1>{{title}}</h1>
+ 
+   {% include "messages.html" %}
+
+ <div class="container">
+     {% block content%}
+
+      {% for post in post_list %}
+ {{ post.id }} <br>
+
+ <!-- {% url 'posts:detail' id=post.id %} -->
+ <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>  <br>
+ {{ post.content }} <br>
+ {{ post.timestamp }} <br>
+ {{ post.updated }} <br><br>
+ {% endfor %}
+
+     {% endblock content%}
+ </div>
+
+</body>
+</html>
